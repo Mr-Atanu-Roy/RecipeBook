@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{recipe | title}} | Recipe
+{% endblock title %}
+
+{% block body %}
+
+<section class="grid grid-cols-3 px-10 py-8">
+    <div class="col-span-2">
+        <h1 class="text-white font-bold text-5xl text-center capitalize">{{recipe}} Recipe</h1>
+        <div class="my-10">
+            <img src="/media/{{recipe.dish_img}}" alt="" class="mx-auto rounded-lg shadow-sm">
+        </div>
+        <div class="text-center mx-auto w-2/3 border border-green-900 rounded-lg p-4 my-8" style="border-width: 7px;">
+            <h3 class="text-white underline text-3xl capitalize font-bold my-4">Ingredients</h3>
+            <p class="text-lg text-gray-300">
+                {{recipe.ingredients}}
+            </p>
+        </div>
+        <div class="px-10">
+            <h3 class="text-white capitalize text-3xl">How to make {{recipe}}</h3>
+            <hr class="mb-4 mt-2">
+            <p class="text-gray-300 text-justify">
+                {{recipe.recipe_desc}}
+            </p>
+        </div>
+    </div>
+    <div>
+        {% for recipes in recipes %}
+        <a href="/view-recipe/{{recipes.pk}}" class="w-full lg:max-w-full lg:flex my-8 bg-gray-700 shadow-md">
+            <div class="h-32 lg:h-auto lg:w-32 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+                style="background-image: url('/media/{{recipes.dish_img}}')">
+            </div>
+            <div
+                class="rounded-b lg:rounded-b-none lg:rounded-r p-2 flex flex-col justify-between leading-normal">
+                <div class="mb-8">
+                    <div class="text-white font-bold text-xl mb-2">
+                        <span class="inline-block bg-gray-200 rounded-lg px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            {% if recipes.recipe_category == "veg" %}
+                                <i class="fa fa-stop-circle text-green-600"></i>
+                            {% else %}
+                                <i class="fa fa-stop-circle text-red-600"></i>
+                            {% endif %}
+                            {{recipes.recipe_category | upper}}
+                        </span>
+                        {{recipes}}
+                    </div>
+                    <p class="text-gray-300 text-lg">{{recipes.recipe_desc | truncatechars:100}}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock body %}

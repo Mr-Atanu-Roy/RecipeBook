@@ -1,0 +1,4 @@
+/env
+media/dish-img
+.env
+*tailwind.config.js

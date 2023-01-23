@@ -1,0 +1,12 @@
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100000000;
+}
+
+header li {
+  list-style: none;
+}
+/*# sourceMappingURL=style.css.map */

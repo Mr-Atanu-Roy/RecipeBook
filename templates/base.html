@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body class="bg-gray-800">
+    <header class="bg-green-900 flex items-center justify-between py-4 px-12 shadow-lg w-full">
+        <div class="text-white text-4xl font-bold font-mono">
+            <a href="/">Recipe</a>
+        </div>
+        <div class="flex items-center justify-between">
+            <li class="px-2 font-medium text-xl text-white"><a href="/">Home</a></li>
+            <li class="px-2 font-medium text-xl text-white"><a href="#">About</a></li>
+            <li class="px-2 font-medium text-xl text-white"><a href="#">Contact</a></li>
+        </div>
+    </header>
+
+    {% block body %}{% endblock body %}
+</body>
+
+</html>
